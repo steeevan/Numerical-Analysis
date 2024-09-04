@@ -1,4 +1,4 @@
-function [] = HW1_Q01()
+function [] = H01_Q01()
 % Name of Function: HW1_Q01
 %
 % Description: 
@@ -31,6 +31,7 @@ end
 
 
 function [] = sqrRoot(a, x1, epsilon, nMax)
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 % Name of Function: sqrRoot
 %
 % Description: 
@@ -55,7 +56,7 @@ function [] = sqrRoot(a, x1, epsilon, nMax)
 %
 % Example Call:
 %   sqrRoot(16, 1, 0.0001, 100);
-%
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 % Initialization of iteration counter and error estimate
     n = 1;
     x(1) = x1;
@@ -85,6 +86,19 @@ function [] = sqrRoot(a, x1, epsilon, nMax)
     
     % Print input values for reference
     % fprintf('%0.2f - %0.2f - %0.2f - %0.2f\n', a, x1, epsilon, nMax);
+        % Plot 1: Approximation (x_n) vs iteration number (n) alongside true sqrt(a)
+    %{
+    figure(1); % Create a new figure for the first plot
+    hold on;
+    plot(1:n, x(1:n), '-o', 'DisplayName', 'x_n Approximation');  % Plot approximation with markers
+    yline(sqrt(a), '-','LineWidth', 1.5, 'DisplayName', 'True sqrt(a)');
+    xlabel('Iteration number (n)');
+    ylabel('Value of sqrt approximation');
+    legend('show');
+    title('Approximation of sqrt(a) vs Iteration number');
+    hold off;
+    %}
+
 
 end
 
