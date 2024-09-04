@@ -23,3 +23,5 @@ function [] = sqrRoot(a, x1, epsilon, nMax)
 %   
     fprintf('%0.2f - %0.2f - %0.2f - %0.2f',a,x1,epsilon,nMax);
 end
+
+% git activated
