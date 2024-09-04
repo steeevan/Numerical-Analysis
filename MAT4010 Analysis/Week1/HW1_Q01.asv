@@ -1,0 +1,48 @@
+function [] = HW1_Q01()
+%
+%
+%
+%
+%
+%   
+    a = input('Enter the value for a: ');
+    x1 = input('Enter the value for x1: ');
+    epsilon = input('Enter the value for epsilon: ');
+    nMax = input('Enter the value for nMax: ');
+
+    sqrRoot(a,x1,epsilon,nMax);
+
+end
+
+
+function [] = sqrRoot(a, x1, epsilon, nMax)
+%
+%
+%
+%
+%
+    % initialize the iteration counter
+    n = 1;
+    x(1) = x1;
+    afErrorEst(1) = inf;
+
+    while afErrorEst(n) > epsilon && n < nMax
+        x(n+1) = (0.5) * (x(n) + a/x(n));
+        afErrorEst(n+1) = abs(x(n+1) - x(n));
+        n = n + 1;
+        fprintf('For n = 2,')
+    end
+
+    if afErrorEst(n) < epsilon
+        fprintf('An approx of the square root of %0.2f is %0.2f\n',a,(x(n)));
+    else
+        fprintf('Max iterations reached\n');
+    end
+
+
+    fprintf('%0.2f - %0.2f - %0.2f - %0.2f',a,x1,epsilon,nMax);
+end
+
+% ---------------
+% git activated |
+% ---------------
