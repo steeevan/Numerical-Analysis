@@ -87,7 +87,7 @@ function [] = sqrRoot(a, x1, epsilon, nMax)
     % Print input values for reference
     % fprintf('%0.2f - %0.2f - %0.2f - %0.2f\n', a, x1, epsilon, nMax);
         % Plot 1: Approximation (x_n) vs iteration number (n) alongside true sqrt(a)
-    %{
+    
     figure(1); % Create a new figure for the first plot
     hold on;
     plot(1:n, x(1:n), '-o', 'DisplayName', 'x_n Approximation');  % Plot approximation with markers
@@ -97,7 +97,7 @@ function [] = sqrRoot(a, x1, epsilon, nMax)
     legend('show');
     title('Approximation of sqrt(a) vs Iteration number');
     hold off;
-    %}
+    
 
 
 end
