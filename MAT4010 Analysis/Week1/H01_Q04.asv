@@ -1,19 +1,42 @@
 function [] = H01_Q04()
+    % H01_Q04: This function estimates the number of iterations required to
+    % achieve an error below a threshold (epsilon) based on the asymptotic 
+    % relation en+1 ≈ lambda * en^alpha. It takes initial error values 
+    % and convergence parameters from the user and prints the error 
+    % at each iteration.
 
+    % Input:
+    %   e1     - Initial error value e1 (used for information, not computation)
+    %   e2     - Initial error value e2 (used for information, not computation)
+    %   e3     - Initial error value e3, the starting point for iteration
+    %   alpha  - Convergence order
+    %   lambda - Asymptotic error constant
+    %   epsilon- Desired error threshold to stop iterations
+    
+    % Output:
+    %   Displays the errors at each iteration and the number of iterations
+    %   required to achieve the error below the given threshold (epsilon).
+    
     % Prompt user for input values
-    e1 = input('Enter a value  for e1: ');
-    e2 = input('Enter a value  for e2: ');
-    e3 = input('Enter a value  for e3: ');
+    e1 = input('Enter a value for e1: '); % Not used in iteration
+    e2 = input('Enter a value for e2: '); % Not used in iteration
+    e3 = input('Enter a value for e3: '); % Starting value for iteration
     
-    alph = input('Enter a value for alpha: ');
-    lambda = input('Enter a value for lambda: ');
-    epsilon = input('Enter a value for epsilon: ');
-
-
-    % initialize the error for the first iteration
-    en = e3;
-    iterations = 3;
+    alpha = input('Enter a value for alpha: '); % Convergence order
+    lambda = input('Enter a value for lambda: '); % Asymptotic error constant
+    epsilon = input('Enter a value for epsilon: '); % Error threshold
     
-    while en >= epsilon
-
+    % Initialize the error for the first iteration
+    e = [e1 e2 e3];
+    n = 3; % Starting from the third error e3
+    
+    % Iteratively calculate errors until the threshold epsilon is reached
+    while e(n) >= epsilon
+        e(n+1) = lambda * e(n)^alpha;
+        fprintf('n = %d gives e(%d) = %0.2e\n', n, n + 1, e(n));
+        iterations = n + 1;
+    end
+    
+    % Display the number of iterations required
+    fprintf('We expect approximately %d iterations to be required.\n', iterations);
 end

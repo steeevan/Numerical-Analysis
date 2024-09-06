@@ -101,10 +101,12 @@ function [] = sqrRoot(a, x1, epsilon, nMax)
     %}
     figure(1); % Create a new figure for the first plot
     hold on;
-    semilogy(1:length(afErrorEst), -flip(afErrorEst), '-o', 'LineWidth', 2);
-    xlabel('Iteration (n)', 'FontSize', 12);
-    ylabel('|e_n| (Log Scale)', 'FontSize', 12);
-    title('Error vs. Iteration', 'FontSize', 14);
+    plot(1:n, x(1:n), '-o', 'DisplayName', 'x_n Approximation');  % Plot approximation with markers
+    yline(sqrt(a), '-','LineWidth', 1.5, 'DisplayName', 'True sqrt(a)');
+    xlabel('Iteration number (n)');
+    ylabel('Value of sqrt approximation');
+    legend('show');
+    title('Approximation of sqrt(a) vs Iteration number');
     hold off;
 
 end
