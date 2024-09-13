@@ -1,0 +1,32 @@
+function [] = H02_Q02()
+    
+    f = @(x) x^2 - 5;
+
+    bisection(2,3,f,1e-6);
+end
+
+
+
+function [] = bisection(a,b,f,ep)
+   
+    a(1) = a;
+    b(1) = b;
+    nMax = ceil(log2((b-a)/ep));
+    fprintf('This is nMax-> %0.2f\n',nMax);
+    fprintf('This is function with x = 5 -> %d',f(5));
+    
+    for n=1:nMax
+        p(n) = (a(n) + b(n))/2;
+        if sign(f(a(n))) ~= sign(f(b(n)))
+            a(n+1) = a(n);
+            b(n+1) = p(n);
+        else
+            a(n+1) = p(n);
+            b(n+1) = b(n);
+        end
+
+        fprintf('n = %d: an = %f, pn = %f, bn = %f, sign(f(an)) = %d, sign(f(pn)) = %d, sign')
+    end
+    
+end
+
